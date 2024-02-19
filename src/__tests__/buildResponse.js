@@ -69,7 +69,7 @@ describe('buildResponse', () => {
         const result = await buildResponse(response, config);
 
         expect(result).toEqual({
-            statusHttp: STATUS_API.SUCCESS,
+            statusHttp: STATUS_HTTP.SUCCESS,
         });
     });
 
@@ -79,7 +79,7 @@ describe('buildResponse', () => {
         const result = await buildResponse(response, config);
 
         expect(result).toEqual({
-            statusHttp: 404,
+            statusHttp: STATUS_HTTP.NOTFOUND,
         });
     });
 });
