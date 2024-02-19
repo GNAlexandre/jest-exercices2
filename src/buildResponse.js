@@ -1,4 +1,4 @@
-import { computeDataError } from './computeDataError';
+import {computeDataError} from "./computeDataError";
 import { STATUS_API } from './setResponseError';
 
 export const buildResponse = async (

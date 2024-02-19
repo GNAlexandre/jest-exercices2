@@ -1,6 +1,8 @@
+//Modification de la classe isValidDate pour qu'elle accepte les dates au format YYYY-MM-DD
 export const isValidDate = date =>
-  (date !== null && date !== undefined && Number.isNaN(Number(date))) ||
-  (typeof date === 'string' && date !== '');
+    date !== null && date !== undefined && !isNaN(Date.parse(date));
+
+
 
 export const formatDate = (date = '01/01/1970', locale = 'fr-FR', options) =>
   date === ''
