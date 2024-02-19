@@ -1,6 +1,6 @@
 import { buildResponse } from '../buildResponse';
 import { computeDataError } from '../computeDataError';
-import { STATUS_API } from '../setResponseError';
+import {STATUS_API, STATUS_HTTP} from '../setResponseError';
 
 
 
@@ -64,8 +64,8 @@ describe('buildResponse', () => {
     });
 
     test('should return statusHttp for SUCCESS status', async () => {
-        const response = { status: STATUS_API.SUCCESS };
-        const config = { blob: false, text: false, json: false };
+        const response = { status: STATUS_HTTP.SUCCESS };
+        const config = { blob: false, text: false, json: true };
         const result = await buildResponse(response, config);
 
         expect(result).toEqual({
@@ -74,8 +74,8 @@ describe('buildResponse', () => {
     });
 
     test('should return statusHttp for other status codes', async () => {
-        const response = { status: 404 };
-        const config = { blob: false, text: false, json: false };
+        const response = { status: STATUS_HTTP.NOTFOUND };
+        const config = { blob: false, text: false, json: true };
         const result = await buildResponse(response, config);
 
         expect(result).toEqual({
